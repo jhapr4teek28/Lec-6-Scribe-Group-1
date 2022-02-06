@@ -212,33 +212,38 @@ Out of these 3 images which is the best curve for error v/s $\lambda$?
     \caption{Image B: Error($\lambda$) vs $\lambda$}
 \end{figure}
 
-Now as $\lambda \rightarrow \infty \ , \ error(\lambda) \rightarrow \sum (y_i)^2$ which is a finite value. Thus we rule out the possibility of both A and C.
+Now as $\lambda \rightarrow \infty \ , \ error(\lambda) \rightarrow \sum (y_i)^2$ which is a finite value. Thus we rule out the possibility of both A and C. Thus the most suitable graph is graph B.
 
-Now an important point to note is that as $\lambda \rightarrow 0, \ W$ matrix becomes more and more ill conditioned and thus $||W||\rightarrow \infty$ and thus $error(\lambda) \rightarrow \infty$
+Now an important point to note is that as $\lambda \rightarrow 0, \ W$ matrix becomes more and more ill conditioned and thus $||W||\rightarrow \infty$ and thus $y_{predicted} \rightarrow \infty$ and thus, $error(\lambda) \rightarrow \infty$
+\\
 
+Thus we neither want high value of $\lambda$ nor want low value of $\lambda$. Thus the region where error($\lambda$) reaches its minimum value is the optimal $\lambda$ or $\lambda^*$.
+
+The region where $\lambda \leq \lambda^*$ is overfitting region as we are not restricting $W$ matrix. The region where $\lambda \geq \lambda^*$ is underfitting region as we are putting lot of restricting $W$ matrix. 
 \end{flushleft}
 
 %----Covered till 62:41 in recording. Continue below this line-----------------------------------------
 \newpage
 \section{Summary}
+
+1. Optimal value of mean squared loss minimization is-
+$$ argmin_w \sum_{i \in D} (y_i- w^Tx_i)^2 + \lambda \|w\|^2$$
+
+2. Feature variable- $ \overrightarrow{x} = [x,\ x^2,\ x^3,\ \ldots,\ x^d]$
+$$l_2 = min_w \sum_{i \in D} (y_i-w^T\overrightarrow{x_i})^2$$
+For above problem,loss on the trainset is very low but loss on a testset is very high, this is called \textbf{Overfitting}\\
+\\
+3. Assuming W is a Gaussian distribution with parameter ($\lambda$), and $W \sim N(0,\sigma^2)$ then, $\lambda \propto \frac{1}{\sigma^2}$.\\
+Significance of ($\lambda$), As $\lambda \rightarrow high value \implies \sigma \rightarrow 0 \implies ||W|| \rightarrow 0$ as we are restricting the prior distribution of $W$\\
+\\
+4. To find a good ($\lambda$), We find W as a function of ($\lambda$), find error by testing it on validation set and then minimize this error and find optimal ($\lambda$).\\
+\\
+5. Variation of Error($\lambda$): Error tends to infinity when ($\lambda$) tends to 0,it then reaches a minimum value and when ($\lambda$) tends to infinity it reaches a finite value of $\sum_i (y_i)^2 $
 \begin{figure}[h]
     \centering
     \includegraphics[width = 5.8cm]{Model complexity.png}
     \caption{error($\lambda$) vs $\lambda$}
 \end{figure}
-1.optimal value of mean squared loss minimization is-
-$$ argmin_w \sum_{i \in D} (y_i- w^Tx_i)^2 + \lambda \|w\|^2$$
-
-2.feature variable- $ \overrightarrow{x} = [x,\ x^2,\ x^3,\ \ldots,\ x^d]$
-$$l_2 = min_w \sum_{i \in D} (y_i-w^T\overrightarrow{x_i})^2$$
-For above problem,loss on the trainset is very low but loss on a testset is very high, this is called \textbf{Overfitting}\\
-\\
-3.Assuming W is a Gaussian distribution with parameter ($\lambda$), and $W \sim N(0,\sigma^2)$ then, $\lambda \propto \frac{1}{\sigma^2}$.\\
-Significance of ($\lambda$), As $\lambda \rightarrow high value \implies \sigma \rightarrow 0 \implies ||W|| \rightarrow 0$ as we are restricting the prior distribution of $W$\\
-\\
-4.To find a good ($\lambda$), We find W as a function of ($\lambda$), find error by testing it on validation set and then minimize this error and find optimal ($\lambda$).\\
-\\
-5.Variation of Error($\lambda$) looks like Error tends to infinity when ($\lambda$) tends to 0,it then reaches a minimum value and when ($\lambda$) tends to infinity it reaches a finite value of $\sum_i (y_i)^2 $
 
 \section{Group Details and Individual Contribution}
 \begin{itemize}
