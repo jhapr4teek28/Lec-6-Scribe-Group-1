@@ -190,15 +190,42 @@ Q. How to find a good value $\lambda$?\\
 \end{enumerate}
 \end{flushleft}
 
+\begin{flushleft}
 Q. How error($\lambda$) vs $\lambda$ looks like?\\
+Out of these 3 images which is the best curve for error v/s $\lambda$?
+\color{blue}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 5.8cm]{image_C.PNG}
+    \caption{Image C: Error($\lambda$) vs $\lambda$}
+\end{figure}
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 5.8cm]{image_A.PNG}
+    \caption{Image A: Error($\lambda$) vs $\lambda$}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 5.8cm]{image_B.PNG}
+    \caption{Image B: Error($\lambda$) vs $\lambda$}
+\end{figure}
+
+Now as $\lambda \rightarrow \infty \ , \ error(\lambda) \rightarrow \sum (y_i)^2$ which is a finite value. Thus we rule out the possibility of both A and C.
+
+Now an important point to note is that as $\lambda \rightarrow 0, \ W$ matrix becomes more and more ill conditioned and thus $||W||\rightarrow \infty$ and thus $error(\lambda) \rightarrow \infty$
+
+\end{flushleft}
+
+%----Covered till 62:41 in recording. Continue below this line-----------------------------------------
+\newpage
+\section{Summary}
 \begin{figure}[h]
     \centering
     \includegraphics[width = 5.8cm]{Model complexity.png}
     \caption{error($\lambda$) vs $\lambda$}
 \end{figure}
-%----Covered till 62:41 in recording. Continue below this line-----------------------------------------
-\section{Summary}
 1.optimal value of mean squared loss minimization is-
 $$ argmin_w \sum_{i \in D} (y_i- w^Tx_i)^2 + \lambda \|w\|^2$$
 
@@ -217,7 +244,7 @@ Significance of ($\lambda$), As $\lambda \rightarrow high value \implies \sigma 
 \begin{itemize}
     \item (19D070003) Adit Akarsh: Sections 6.1-6.2
     \item (190100007) Aditya Vijay Jain:  Section 6.3
-    \item (200110064) Loveneesh Lawaniya: Section 6.3
+    \item (200110064) Loveneesh Lawaniya: Section 6.4 
     \item (200040106) Prateek Jha: Section 6.4
 \end{itemize}
 
